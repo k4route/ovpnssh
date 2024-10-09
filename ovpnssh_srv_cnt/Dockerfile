@@ -4,10 +4,8 @@ MAINTAINER k4
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt clean && apt -y update && apt install -y --no-install-recommends vim openvpn iptables openssh-server sudo && \
-	useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo user1 && \
-	useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo user2 && \
-	echo user1:test1 | chpasswd && \
-	echo 'user2:test2' | chpasswd && \
+    useradd -rm -d /home/user1 -s /bin/bash -g root -G sudo user1 && \
+    useradd -rm -d /home/user2 -s /bin/bash -g root -G sudo user2 && \
     mkdir -p /dev/net && \
     mknod /dev/net/tun c 10 200 && \
     chmod 600 /dev/net/tun 	&& \
