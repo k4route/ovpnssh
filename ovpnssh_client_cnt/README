@@ -1,0 +1,5 @@
+docker build -t k4r/ovss_c:0:0 .
+
+docker run -it -d --privileged --rm \
+	       -v ovpnsshcl_key:/root/.ssh \
+	       k4r/ovss_c:0.9
