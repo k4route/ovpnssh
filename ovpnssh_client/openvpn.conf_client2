@@ -1,0 +1,148 @@
+client
+dev tun
+proto tcp-client
+tun-mtu 1400
+socks-proxy 127.0.0.1 8080
+socks-proxy-retry
+remote localhost 1194
+#ssh -l ubuntu -D 8080 -N 192.168.3.154
+tls-client
+
+<ca>
+-----BEGIN CERTIFICATE-----
+MIIDSzCCAjOgAwIBAgIUEEEXl2SqM/AZomucbZiclqK2I8owDQYJKoZIhvcNAQEL
+BQAwFjEUMBIGA1UEAwwLRWFzeS1SU0EgQ0EwHhcNMjQxMDA5MDc0MzQxWhcNMzQx
+MDA3MDc0MzQxWjAWMRQwEgYDVQQDDAtFYXN5LVJTQSBDQTCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAJ1crl1hsiLuQIhS8D4XENwIUuPO9Bpqjomi46p6
+pkVgenSBryotXcbWHUe2+gTFL23aQGIxAy15xWexx/HWyhe7nbYZt7A6UqwfA8cS
+alAaakwDFaujuqbNF1L1OlIZKpmbXXDXIhoj4uBWDA4dnTuV2ujg9tDf+s0j1ru0
+9m7hL4Mez7L+/0ol+d72bLU5tDeE1F4vQRhGTSxJazCrGKFZ5D9MUv+eAl4nRXfm
+xGoEWhfTCOcxkstTpp/ysAOKkSTXh9+D2Sr3XtUVD3dBcQHrCcYEl62SxbtcDYar
+6c8Zmxy/bCAJ4g6XlxBsBFJ1ct/j+Qe+ZPgTpihppQb/q7ECAwEAAaOBkDCBjTAd
+BgNVHQ4EFgQUtJK1mOqT4wlBMbxGV3YiwGGe2swwUQYDVR0jBEowSIAUtJK1mOqT
+4wlBMbxGV3YiwGGe2syhGqQYMBYxFDASBgNVBAMMC0Vhc3ktUlNBIENBghQQQReX
+ZKoz8Bmia5xtmJyWorYjyjAMBgNVHRMEBTADAQH/MAsGA1UdDwQEAwIBBjANBgkq
+hkiG9w0BAQsFAAOCAQEAiLXUol/IkeMnQrKfH895Civ8I8l6PEiTCVJp3auQmUP5
+qiph6sFGGskUfU5RmuCdF62G1+yfv2seh/LLo73tR7iVwK2Lgw2ms82F1iNnhLad
+HTwCiFELjpqEMrv6mILyjTZjrbIrYUKwYRA0d0/psY3leFuKGaHYakDhVVpYZxee
+kAmVNGw8Q2PHMBJyUx0Yeofif0BBrdIj9n79ofw3aYbOOI0WkA7py4DOuVHyiIy0
+/H306/5qyBwQ++TM+XT2z+xb3V999rKK3YqqifR1j86SHPm9MigdMk2fsH38dlYk
+lQ2eN9JokqyYFzn7NTXU1cZ+4snBOp/q+TAQ4lV22g==
+-----END CERTIFICATE-----
+</ca>
+<cert>
+    Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            e9:4f:0c:f4:96:6d:74:8e:9f:a2:1d:52:fa:db:48:d5
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: CN=Easy-RSA CA
+        Validity
+            Not Before: Oct  9 07:53:39 2024 GMT
+            Not After : Jan 12 07:53:39 2027 GMT
+        Subject: CN=myclient2
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:d3:c4:e5:d2:d1:72:9f:27:93:05:58:bc:0c:be:
+                    95:ba:47:5d:ea:92:fa:ba:fa:03:66:15:98:69:b4:
+                    0e:f8:21:59:06:ad:43:f5:2d:a7:99:ac:90:e8:b6:
+                    c9:0c:27:59:19:c9:c6:39:4b:93:40:11:e6:69:14:
+                    32:0c:8a:7c:9d:7c:54:33:3d:61:7a:08:46:55:c3:
+                    ac:c0:11:63:a4:f4:f5:87:19:a3:00:1b:89:b1:67:
+                    fe:72:39:67:d4:f2:62:94:8b:06:df:44:51:74:ac:
+                    5a:22:26:85:43:b1:c7:4b:e3:dc:5a:bc:12:c2:cb:
+                    46:cc:14:3d:45:a6:7b:70:45:c0:43:3c:4f:ad:21:
+                    3b:ea:5c:fe:21:1a:93:ed:78:77:86:a5:0e:8d:1d:
+                    62:b5:cd:70:2b:04:1b:41:70:e2:29:c6:78:83:11:
+                    f8:f3:97:fd:1b:40:9d:9d:cc:8d:cc:72:15:d3:3f:
+                    60:fd:95:d4:cc:da:5b:4e:1e:7b:3c:e8:bf:7f:fa:
+                    67:e1:6b:79:f7:2c:da:ed:4f:4b:81:40:07:34:02:
+                    7f:a5:a1:91:8c:96:b7:37:26:af:39:65:91:ed:04:
+                    4f:c7:33:ce:94:d8:b2:44:53:aa:da:de:b0:55:97:
+                    09:c9:8f:db:0e:96:e8:28:99:2d:6b:2e:4d:ee:21:
+                    e4:99
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints:
+                CA:FALSE
+            X509v3 Subject Key Identifier:
+                C0:9C:19:0D:50:24:17:7B:5A:66:68:C4:E6:59:5A:32:FE:5C:0F:34
+            X509v3 Authority Key Identifier:
+                keyid:B4:92:B5:98:EA:93:E3:09:41:31:BC:46:57:76:22:C0:61:9E:DA:CC
+                DirName:/CN=Easy-RSA CA
+                serial:10:41:17:97:64:AA:33:F0:19:A2:6B:9C:6D:98:9C:96:A2:B6:23:CA
+            X509v3 Extended Key Usage:
+                TLS Web Client Authentication
+            X509v3 Key Usage:
+                Digital Signature
+    Signature Algorithm: sha256WithRSAEncryption
+    Signature Value:
+        6e:c6:00:97:fb:92:9d:e0:07:35:ed:d2:0f:64:6b:8c:44:88:
+        fc:cf:36:9f:24:ab:69:9f:96:d4:c6:77:0b:8c:d9:64:27:4b:
+        3a:0c:20:63:82:1c:d6:a7:41:59:2c:d5:c5:d2:ba:2d:48:99:
+        98:f4:7d:a3:70:95:82:1e:46:dc:81:f6:69:0d:42:7b:76:d7:
+        f8:82:e9:5e:ea:12:09:71:7b:be:8e:7a:e2:c6:a2:5a:d0:1a:
+        83:94:f7:bf:9c:c8:17:73:17:5a:e3:a9:d8:72:1d:40:bb:b6:
+        32:03:56:b9:db:2d:15:38:d4:a6:67:b7:7a:d1:48:b2:a5:39:
+        45:10:ff:5e:34:c2:6a:6f:78:38:be:c8:9e:db:8b:29:7c:35:
+        4f:00:60:c8:76:6c:32:df:be:f9:71:0a:78:29:f8:a9:70:50:
+        25:50:23:63:bc:2b:b4:02:2b:df:4e:13:7d:96:9a:e4:68:54:
+        e4:2c:95:4c:31:aa:fe:31:c8:17:c4:ad:75:bb:31:cd:1e:e5:
+        b3:6b:b1:03:30:73:16:a0:ec:07:b3:c1:52:f8:e1:65:86:d4:
+        e4:b9:0e:cf:6c:ba:ac:12:f4:4b:05:9c:88:03:1c:62:78:75:
+        d6:e2:0e:a9:3d:e9:f2:4a:4c:11:b2:34:98:ee:67:fa:ca:1b:
+        29:f3:a8:d5
+-----BEGIN CERTIFICATE-----
+MIIDWDCCAkCgAwIBAgIRAOlPDPSWbXSOn6IdUvrbSNUwDQYJKoZIhvcNAQELBQAw
+FjEUMBIGA1UEAwwLRWFzeS1SU0EgQ0EwHhcNMjQxMDA5MDc1MzM5WhcNMjcwMTEy
+MDc1MzM5WjAUMRIwEAYDVQQDDAlteWNsaWVudDIwggEiMA0GCSqGSIb3DQEBAQUA
+A4IBDwAwggEKAoIBAQDTxOXS0XKfJ5MFWLwMvpW6R13qkvq6+gNmFZhptA74IVkG
+rUP1LaeZrJDotskMJ1kZycY5S5NAEeZpFDIMinydfFQzPWF6CEZVw6zAEWOk9PWH
+GaMAG4mxZ/5yOWfU8mKUiwbfRFF0rFoiJoVDscdL49xavBLCy0bMFD1FpntwRcBD
+PE+tITvqXP4hGpPteHeGpQ6NHWK1zXArBBtBcOIpxniDEfjzl/0bQJ2dzI3MchXT
+P2D9ldTM2ltOHns86L9/+mfha3n3LNrtT0uBQAc0An+loZGMlrc3Jq85ZZHtBE/H
+M86U2LJEU6ra3rBVlwnJj9sOlugomS1rLk3uIeSZAgMBAAGjgaIwgZ8wCQYDVR0T
+BAIwADAdBgNVHQ4EFgQUwJwZDVAkF3taZmjE5llaMv5cDzQwUQYDVR0jBEowSIAU
+tJK1mOqT4wlBMbxGV3YiwGGe2syhGqQYMBYxFDASBgNVBAMMC0Vhc3ktUlNBIENB
+ghQQQReXZKoz8Bmia5xtmJyWorYjyjATBgNVHSUEDDAKBggrBgEFBQcDAjALBgNV
+HQ8EBAMCB4AwDQYJKoZIhvcNAQELBQADggEBAG7GAJf7kp3gBzXt0g9ka4xEiPzP
+Np8kq2mfltTGdwuM2WQnSzoMIGOCHNanQVks1cXSui1ImZj0faNwlYIeRtyB9mkN
+Qnt21/iC6V7qEglxe76OeuLGolrQGoOU97+cyBdzF1rjqdhyHUC7tjIDVrnbLRU4
+1KZnt3rRSLKlOUUQ/140wmpveDi+yJ7biyl8NU8AYMh2bDLfvvlxCngp+KlwUCVQ
+I2O8K7QCK99OE32WmuRoVOQslUwxqv4xyBfErXW7Mc0e5bNrsQMwcxag7AezwVL4
+4WWG1OS5Ds9suqwS9EsFnIgDHGJ4ddbiDqk96fJKTBGyNJjuZ/rKGynzqNU=
+-----END CERTIFICATE-----
+</cert>
+<key>
+-----BEGIN PRIVATE KEY-----
+MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC4QRbGrmTAwVR5
+u0DVI+mh03FZhssdGcNgNUKqJsDP8WK4h76+aLycrf++1s8S9z9kAoVaFu6xuDAU
+7H69tF87ztyX4hxIO35davDDiNoVsnXT4mPijk8A+//+zC/JdFiEq4zobhK4lV1S
+zC2NbB2IyXqp0Qp5rdsYOMKLPpZ5aEPdOESh5jeLGz66u3Y/4AEpNDztH7p62o80
+4ZGaTFu22c/D1Npkun2oLRKqHYhsIrpY23ITMcwJ4REB6hIoBfY7pDFKfkkJFVEH
+AHOoDx64ERPoAeQYnghm7ea2g2gwUSvMCJAW5//OvJIR9L6wtiKG07aLU/nASxnq
+JJwdboWJAgMBAAECggEABVcC5/h/PFmIrzZ5ZzPxPhq4pZWTJrbBGMqyXJK0R9KB
+FUP/MoQqjd06ajd414iJh8Z4Qud4kiH6aBYqiNOaEaD/Ik+6mMVQoOMhMymGLdbM
+NLsnletLPYYQIebyWO5MRRwLq2N1RhreEjDkqRKXEIh2S5xJUhlzHhKXC3Nhklx3
+P+pTvVksz4cVqKWohxgky02YFnW3vFK/MKPs+v8tdueIGO78Y/8+A0XozKE8HPsD
+V9KZ3HvNVJHmJH57q660XF7g5ddRxyccc7DSoy9uD6IZmr84mKRZnr2uShmJ6t/p
+S/bti8dNHtZbAsgZGV1Xn1zw4DMCqthly/G6pnel2QKBgQDI7nK0PEPxsj416L6M
+069CNVJXeuJCRNfFk9Q3jEU/esizdXbueA1YDkVKYhrpaILdllqj9caxbNDMM8WT
+KspR39L09kwQIPZDHGk2/bThLErPpZOl7NyDWgtgbuhF9axkeJAVjGNo44V7cj4a
+E+YVr71yAtBnAJJYTpfzdagauwKBgQDqwI2KVJ4eNzn3J597m109XWk2ODgkR6XD
+JveRXyWCY9QkmZwxbjVeDRyEowekjmPifN9JV1TBPxaNciKtPiX7GsYxLfpiFkcA
+9XikRLdX0gUtxWtdupbkgpnILH4bnSYl9hRx6Nes0zRSw5ilrGNe9qPwRjcrKg7A
+e7bmoSzmiwKBgB/BwBNIaxyqJTb0ABnV4x89ujPlUhlTNB8gDCxzWQZ9a3chm5h5
+FPLT3pOxCbvWLsjC2LSNRcgJAL8ld5aY7r0d+QOKYd8ytnlI5kAwvQPRskk7TCiv
+VPLVqnKlVMSp3YNLosolFBkhzJkEJ1iLyJOo4PJCC5ob9wVJ9q4d7GG9AoGAd1y+
+20ZZO43jKFt6SRRfXXNgqtP9H91aWJc4rC8P2HPAC3gbpjqeYhsSlBJ9MVvBSAks
+U5NXIgddBUCyhxohn8MmYR06waMIKWGnHQdfngTI41QNWpQkYz5QySpuWMYX/pdY
+H+8/sr2VTjvsItk7ka6g/uwE4yq4Y4DEKBJtzS8CgYAwWlraPEXEPESO4j3B1dME
+atzsutIbIlK0HZAIh2FUUSDPJ7qklgwOoelYqOv9LWEvkmKldZzFoLJuUc5iDs6j
+KuVUU18sVHUG7SUzQ94QKH6p1su3z3e/tyKGYc0GDhj1o/8v8pcuEfHDwETtR+sA
+4wS27JIRVpKews5K5RJndA==
+-----END PRIVATE KEY-----
+</key>
