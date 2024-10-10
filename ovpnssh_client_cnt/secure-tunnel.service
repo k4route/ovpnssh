@@ -3,7 +3,7 @@ Description=Setup a secure tunnel
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/ssh -NT -o ServerAliveInterval=60 -o ExitOnForwardFailure=yes -l user1 -D 8080 -N <IP> -p 2222 &
+ExecStart=/usr/bin/ssh -NT -o ServerAliveInterval=60 -o ExitOnForwardFailure=yes -l user1 -D 8080 -N 176.31.162.173 -p 2222 &
 
 # Restart every >2 seconds to avoid StartLimitInterval failure
 RestartSec=5

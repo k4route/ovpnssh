@@ -6,6 +6,14 @@
 #
 #
 
+# VM should have bridged iface with real network
+# laptop should have IP within the home lan range
+# with GW of VM we configuring here
+# in this particular case IP of laptop is lets say
+# 192.168.2.17 and Gateway is 192.168.2.153 (IP of VM)
+#
+# 192.168.2.1 is home router IP 
+
 netplan:
 # This is the network config written by 'subiquity'
 network:
@@ -17,21 +25,23 @@ network:
       nameservers:
         addresses: [192.168.2.1]
       routes:
-      - to: 192.168.3.153/32
-        via: 192.168.2.1
-      - to: 192.168.3.154/32
+      - to: <SECTER_IP>/32
         via: 192.168.2.1
 
   version: 2
 
+netplan apply
+
 export DEBIAN_FRONTEND=noninteractive && \
 apt clean && apt -y update && apt install -y --no-install-recommends vim openvpn iptables openssh-server sudo && \
-#iptables-restore < iptables-save && \
-cp openvpn.conf /etc/openvpn/openvpn.conf
 
+cp openvpn.conf /etc/openvpn/openvpn.conf
+echo 'net.ipv4.ip_forward=1' >> /etc/sysctl.conf 
 ssh-keygen
 cd $HOME
 cat .ssh/id_rsa.pub
+sent to server please
+
 echo "StrictHostKeyChecking accept-new" >> /etc/ssh/ssh_config
 
 iptables -A FORWARD -i enp0s3 -o enp0s3 -d 192.168.3.0/24 -j ACCEPT
@@ -42,6 +52,11 @@ vi /etc/rc.local
 #!/bin/sh -e
 #
 #
+iptables -A FORWARD -i enp0s3 -o enp0s3 -d 192.168.3.0/24 -j ACCEPT
+iptables -A FORWARD -i enp0s3 -o enp0s3 -j DROP
+iptables -t nat -I POSTROUTING -s 192.168.3.0/24 -o tun0 -j MASQUERADE
+
+ssh -l user1 -D 8080 -N <SECRET_IP> -p 2222 &
 
 exit 0
 
@@ -67,4 +82,40 @@ vi /etc/systemd/system/rc-local.service
 
 systemctl enable rc-local.service
 
-ssh -l user1 -D 8080 -N 192.168.3.154 -p 2222 &
+
+
+#the same to daemonize ssh tunnel:
+
+/etc/systemd/system/secure-tunnel@.service
+
+[Unit]
+Description=Setup a secure tunnel to %I
+After=network.target
+
+[Service]
+Environment="LOCAL_ADDR=localhost"
+EnvironmentFile=/etc/default/secure-tunnel@%i
+ExecStart=/usr/bin/ssh -NT -o ServerAliveInterval=60 -o ExitOnForwardFailure=yes -l ${REMOTE_USER} -D ${DPORT} -N ${TARGET} -p ${REMOTE_PORT}
+
+# Restart every >2 seconds to avoid StartLimitInterval failure
+RestartSec=5
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+/etc/default/secure-tunnel@jupiter
+
+TARGET=176.31.162.173
+REMOTE_PORT=2222
+REMOTE_USER=user1
+DPORT=8080
+
+systemctl start secure-tunnel@jupiter.service
+systemctl status secure-tunnel@jupiter.service
+
+systemctl enable secure-tunnel@jupiter.service
+
+
