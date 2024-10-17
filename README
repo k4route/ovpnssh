@@ -49,3 +49,5 @@ mkdir /root/client
 cp /usr/share/easy-rsa/pki/issued/myclient* /root/client/
 cp /usr/share/easy-rsa/pki/private/myclient* /root/client/
 cp /usr/share/easy-rsa/pki/ca.crt /root/client/
+
+#added from root@ubuntu-srv-1 192.168.3.154
